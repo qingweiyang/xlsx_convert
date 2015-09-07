@@ -17,7 +17,7 @@
     <link href="local/css/main.css" rel="stylesheet">
 </head>
 <body>
-	<div id = "starter" style="display : none;">
+	<div id = "starter" style="display:none;">
 		<div class="row clearfix">
 			<div class="col-md-12 column">
 				<div class="alert alert-success alert-dismissable">
@@ -70,17 +70,12 @@
 	    </div>
 	  </div>
 	  <div id="table_content">
-	  	<table id="current-table" class="table table-condensed table-hover" width="100%" border="1" cellpadding="2" cellspacing="1" style="table-layout:fixed;">
+	  	<table id="current-table" class="table table-condensed table-bordered table-hover" width="100%" cellpadding="2" cellspacing="1" style="table-layout:fixed;">
 		  <thead>
 			<tr class="active">
 			    <th width="80px"><input type="checkbox" onchange="checkboxChanged(this, 1);"> No.</th>
 			    <th width="150px">名称</th>
-			    <th width="150px">型号</th>
-			    <th width="100px">厚度</th>
-			    <th width="150px">尺寸</th>
-			    <th width="100px">安装方式</th>
-			    <th width="250px">测量机构</th>
-			    <th width="100px">测量时间</th>
+			    <th width="150px">描述</th>
 			    <th width="80px">100Hz</th>
 			    <th width="80px">125Hz</th>
 			    <th width="80px">160Hz</th>
@@ -99,12 +94,21 @@
 			    <th width="80px">3150Hz</th>
 			    <th width="80px">4000Hz</th>
 			    <th width="80px">5000Hz</th>
+			    <th width="80px">6300Hz</th>
+			    <th width="80px">8000Hz</th>
+			    <th width="80px">10000Hz</th>
 			</tr>
 		  </thead>
 		  <tbody></tbody>
 		</table>
 	  </div>
 	</div>
+	
+	  <!-- 分页 -->
+	  <nav>
+	    <ul class="pagination">
+	    </ul>
+	  </nav>
 </body>
 
 <!-- uncomment the next line here and in xlsxworker.js for encoding support -->

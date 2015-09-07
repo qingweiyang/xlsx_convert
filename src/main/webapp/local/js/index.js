@@ -9,7 +9,7 @@ $(document).ready(function(){
 			resultGlobal = eval(data);
 			//展示数据表格
 //			$("#starter").hide();
-			show(getInitialData(), 1, resultGlobal.length - 2);
+			show(getInitialData(), 1, countPerPage);
 			$("#show-table").show();
 	});
 });
@@ -92,18 +92,18 @@ function enterSearch(e) {
 function search() {
 	var val = $("#search-val").val();
 	if(val == null || val == "") {
-		show(getInitialData(), 1, getInitialData().length);
+		show(getInitialData(), 1, countPerPage);
 		return ;
 	}
 
 	var res = [];
 	for(var i = 2 ; i < resultGlobal.length ; i++) {
-		if(resultGlobal[i][1].indexOf(val) > -1) {
+		if(resultGlobal[i][1] != null && resultGlobal[i][1].indexOf(val) > -1) {
 			addArray(res, i);
 		}
 	}
 	console.log(res);
-	show(res, 1, res.length);
+	show(res, 1, countPerPage);
 }
 
 //根据formate获取当前时间 (eg: "yy-MM-dd hh:mm:ss")
@@ -243,7 +243,7 @@ function to_formulae(workbook) {
 
 	//展示数据表格
 	$("#starter").hide();
-	show(getInitialData(), 1, resultGlobal.length - 2);
+	show(getInitialData(), 1, countPerPage);
 	$("#show-table").show();
 
 	return result.join("\n");
@@ -304,7 +304,8 @@ function show(list, currentPage, countPerPage) {
 		tContent += "</tr>";
 		
 	}
-
+	
+	pageDivision(list, Math.ceil(list.length / countPerPage), currentPage);
 //	$("#current-table thead").html(tHead);
 	$("#current-table tbody").html(tContent);
 } 

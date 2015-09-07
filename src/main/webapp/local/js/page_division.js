@@ -1,5 +1,5 @@
-   var countPerPage = 10;
-
+   var countPerPage = 20;
+   var curList;
   // 点击分页，执行翻页操作
   function pageClick(select, currentPage, pages) {
     var cp = $(select).text();
@@ -10,11 +10,12 @@
     } else if(cp != "上一页" && cp != "下一页") {
     	currentPage = cp;
     } 
-    showAllOrders(Number(currentPage), countPerPage);
+    show(curList, Number(currentPage), countPerPage);
   }
   
   // 分页的显示
-  function pageDivision(pages, currentPage) {
+  function pageDivision(list, pages, currentPage) {
+    curList = list;
     $(".pagination").children().remove();
     // 共展示的分页条数（如10页）
     var pnum = 7;
